@@ -17,8 +17,7 @@ public class HomeController {
 
     @GetMapping
     public String Index(Model model){
-
-        model.addAttribute("detail_nota", menuRepository.getAllMenuNames());
+        model.addAttribute("menu", menuRepository.getAllMenu());
         return "index.html";
 
     }

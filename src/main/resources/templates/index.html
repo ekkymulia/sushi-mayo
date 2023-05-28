@@ -139,10 +139,15 @@
 					<div class="list-icon">
 						<i class="fas fa-shipping-fast"></i>
 					</div>
-					<div class="content">
-						<h3 th:text="${detail_nota}">Home Delivery</h3>
-						<p>Via Gofood and Grab Food</p>
-					</div>
+                    <div class="content">
+                        <ul>
+                            <li th:each="eachmenu : ${menu}">
+                                <h3 th:text="${eachmenu.getNamaMenu()}">Home Delivery</h3>
+                                <p>Via Gofood and Grab Food</p>
+                            </li>
+                        </ul>
+                    </div>
+
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
