@@ -142,10 +142,10 @@
 						      <div class="card-body">
 						        <div class="billing-address-form">
 						        	<form action="">
-						        		<p><input type="text" placeholder="Name"></p>
-						        		<p><input type="email" placeholder="Email"></p>
-						        		<p><input type="text" placeholder="Address"></p>
-						        		<p><input type="tel" placeholder="Phone"></p>
+						        		<p><input name="name" type="text" placeholder="Name"></p>
+						        		<p><input name="email" type="email" placeholder="Email"></p>
+						        		<p><input name="address" type="text" placeholder="Address"></p>
+						        		<p><input name="phone" type="tel" placeholder="Phone"></p>
 						        		<p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea></p>
 						        	</form>
 						        </div>
@@ -231,7 +231,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<a href="#" class="boxed-btn">Place Order</a>
+						<a href="#" class="boxed-btn" onclick="sendWa()">Place Order</a>
 					</div>
 				</div>
 			</div>
@@ -319,6 +319,65 @@
 	<script src="js/sticker.js"></script>
 	<!-- main js -->
 	<script src="js/main.js"></script>
+	<script>
+		function sendWa(){
+			// Retrieve input data from form fields
+			const name = document.querySelector('input[name="name"]').value;
+			const email = document.querySelector('input[name="email"]').value;
+			const address = document.querySelector('input[name="address"]').value;
+			const phone = document.querySelector('input[name="phone"]').value;
+			const note = document.querySelector('textarea[name="bill"]').value;
 
+			// Retrieve cart item data from local storage
+			const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+
+			// Generate the WhatsApp message content
+			let message = `=== STRUK PEMBAYARAN ===
+Tanggal: [Masukkan tanggal pembayaran]
+Nomor Transaksi: [Masukkan nomor transaksi]
+Total Pembayaran: [Masukkan total pembayaran]
+=============
+Pelanggan:
+Nama: ${name}
+Telepon: ${phone}
+Email: ${email}
+Alamat: ${address}
+Note: ${note}
+============
+Rincian Pembayaran:`;
+				let total = 0;
+				cartItems.forEach((item, index) => {
+					const itemIndex = index + 1;
+					const totalPrice = item.quantity * parseInt(item.hargaMenu.replace(",", ""));
+					total += totalPrice
+					message += `\n${itemIndex}. ${item.namaMenu}: ${item.quantity} x Rp ${item.hargaMenu} = ${formatPrice(totalPrice)}`;
+				});
+
+			// Calculate subtotal, tax, and total payment
+			const subtotal = total;
+			const tax = subtotal * 0.1;
+			const totalPayment = subtotal + tax;
+
+			message += `
+============
+Subtotal: ${formatPrice(subtotal)}
+Pajak 10%: ${formatPrice(tax)}
+Total Pembayaran: ${formatPrice(totalPayment)}
+============
+Metode Pembayaran: QRIS
+Status Pembayaran: Belum Bayar
+
+Terima kasih atas pembayaran Anda!`;
+
+			// Redirect to WhatsApp with the message
+			const whatsappURL = `https://wa.me/6287873504007?text=${encodeURIComponent(message)}`;
+			window.location.href = whatsappURL;
+		}
+		function formatPrice(price) {
+			var formattedPrice = "Rp " + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			return formattedPrice;
+		}
+
+	</script>
 </body>
 </html>

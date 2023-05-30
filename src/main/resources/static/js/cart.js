@@ -104,7 +104,7 @@ function displayCartItems() {
             // Create and append table cells with menu item details
             newRow.innerHTML = `
             <td class="product-remove"><a href="" onclick="removeFromCart(${idMenu})"><i class="far fa-window-close"></i></a></td>
-            <td class="product-image"><img src="img/products/product-img-1.jpg" alt=""></td>
+            <td class="product-image"><img src="img/products/${gambarMenu}.jpg" alt=""></td>
             <td class="product-name">${namaMenu}</td>
             <td class="product-price">Rp ${hargaMenu}</td>
             <td class="product-quantity"><input type="number" name="quantity" onchange="updateQuantity(${idMenu}, this.value)" value="${quantity}" placeholder="0"></td>
