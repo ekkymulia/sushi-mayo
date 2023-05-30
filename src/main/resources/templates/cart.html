@@ -140,30 +140,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="img/products/product-img-1.jpg" alt=""></td>
-									<td class="product-name">Strawberry</td>
-									<td class="product-price">$85</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="img/products/product-img-2.jpg" alt=""></td>
-									<td class="product-name">Berry</td>
-									<td class="product-price">$70</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="img/products/product-img-3.jpg" alt=""></td>
-									<td class="product-name">Lemon</td>
-									<td class="product-price">$35</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
@@ -180,16 +156,8 @@
 							</thead>
 							<tbody>
 								<tr class="total-data">
-									<td><strong>Subtotal: </strong></td>
-									<td>$500</td>
-								</tr>
-								<tr class="total-data">
-									<td><strong>Shipping: </strong></td>
-									<td>$45</td>
-								</tr>
-								<tr class="total-data">
 									<td><strong>Total: </strong></td>
-									<td>$545</td>
+									<td id="total-box"></td>
 								</tr>
 							</tbody>
 						</table>
@@ -290,6 +258,13 @@
 	<script src="js/sticker.js"></script>
 	<!-- main js -->
 	<script src="js/main.js"></script>
-
+	<!-- cart-->
+	<script src="js/cart.js"></script>
+	<script>
+		window.addEventListener('DOMContentLoaded', function () {
+			// Call the displayCartItems function on window ready
+			displayCartItems();
+		});
+	</script>
 </body>
 </html>

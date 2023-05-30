@@ -32,9 +32,6 @@ public class ShopController {
     public MenuModel getMenuDetails(@RequestParam("id") String menuId) {
         // Logic to fetch menu details based on the menuId
         MenuModel menu = menuRepository.getMenuById(Integer.parseInt(menuId));
-
-        // Replace with your actual logic to retrieve menu details
-
         return menu;
     }
 }
