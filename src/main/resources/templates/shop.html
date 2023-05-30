@@ -145,6 +145,7 @@
 							<a href="single-product"><img th:src="'img/products/' + ${each_menu.getGambarMenu} + '.jpg'" alt=""></a>
 						</div>
 						<h3 th:text="${each_menu.getNamaMenu()}">Strawberry</h3>
+						<p th:text="${each_menu.getDeskripsiMenu}"></p>>
 						<p class="product-price" th:text="'Rp ' + ${each_menu.getHargaMenu()}"></p>
 						<a href="#" class="cart-btn" th:onclick="'addToCart(' + ${each_menu.getIdMenu()} + ')'"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
