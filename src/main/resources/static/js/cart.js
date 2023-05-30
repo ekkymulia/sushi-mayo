@@ -115,11 +115,17 @@ function displayCartItems() {
             tableBody.appendChild(newRow);
         });
 
-        var formattedTotalPrice = "Rp " + totalPrice.toLocaleString();
+        var formattedTotalPrice = formatPrice(totalPrice);;
         // Update the total box with the formatted total price
         totalBox.innerText = formattedTotalPrice;
     }
 }
+
+function formatPrice(price) {
+    var formattedPrice = "Rp " + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return formattedPrice;
+}
+
 
 function updateQuantity(menuId, newQuantity) {
     var cartItems = localStorage.getItem("cartItems");
