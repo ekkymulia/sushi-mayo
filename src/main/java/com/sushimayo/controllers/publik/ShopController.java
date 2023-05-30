@@ -27,6 +27,13 @@ public class ShopController {
         return "shop.html";
     }
 
+    @GetMapping(value = "/getSearch")
+    public String ShopSearch (@RequestParam String namamenu, Model model){
+        model.addAttribute("jenis_menu_data", jenisMenuRepository.getAllJenisMenu());
+        model.addAttribute("menu_data", menuRepository.getMenuByName(namamenu));
+        return "shop.html";
+    }
+
     @GetMapping(value = "/getProductDetails", produces = "application/json")
     @ResponseBody
     public MenuModel getMenuDetails(@RequestParam("id") String menuId) {
