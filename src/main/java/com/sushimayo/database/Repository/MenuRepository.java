@@ -28,6 +28,12 @@ public class MenuRepository {
         return jdbcTemplate.queryForObject(query, new Object[]{menuId}, new MenuMapper());
     }
 
+    public List<MenuModel> getMenuByName(String menuName) {
+        String query = "SELECT * FROM menu WHERE nama_menu = ?";
+        return jdbcTemplate.query(query, new Object[]{menuName}, new MenuMapper());
+    }
+
+
 
     private class MenuMapper implements RowMapper<MenuModel> {
         @Override
