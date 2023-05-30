@@ -147,6 +147,7 @@
 						<h3 th:text="${each_menu.getNamaMenu()}">Strawberry</h3>
 						<p th:text="${each_menu.getDeskripsiMenu}"></p>>
 						<p class="product-price" th:text="'Rp ' + ${each_menu.getHargaMenu()}"></p>
+						<p th:text="${each_menu.getDeskripsiMenu()}"></p>
 						<a href="#" class="cart-btn" th:onclick="'addToCart(' + ${each_menu.getIdMenu()} + ')'"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 					</div>
 				</div>
