@@ -23,6 +23,12 @@ public class MenuRepository {
         return jdbcTemplate.query(query, new MenuMapper());
     }
 
+    public MenuModel getMenuById(int menuId) {
+        String query = "SELECT * FROM menu WHERE id_menu = ?";
+        return jdbcTemplate.queryForObject(query, new Object[]{menuId}, new MenuMapper());
+    }
+
+
     private class MenuMapper implements RowMapper<MenuModel> {
         @Override
         public MenuModel mapRow(ResultSet rs, int rowNum) throws SQLException {

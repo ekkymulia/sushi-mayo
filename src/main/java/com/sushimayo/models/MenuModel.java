@@ -1,10 +1,18 @@
 package com.sushimayo.models;
 
+import java.text.DecimalFormat;
+
 public class MenuModel {
     private int idMenu;
     private String namaMenu;
     private double hargaMenu;
     private int idJenisMenu;
+
+    public String getGambarMenu() {
+        return gambarMenu;
+    }
+
+    private String gambarMenu;
 
     public int getIdMenu() {
         return idMenu;
@@ -22,8 +30,9 @@ public class MenuModel {
         this.namaMenu = namaMenu;
     }
 
-    public double getHargaMenu() {
-        return hargaMenu;
+    public String getHargaMenu() {
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        return decimalFormat.format(hargaMenu);
     }
 
     public void setHargaMenu(double hargaMenu) {
