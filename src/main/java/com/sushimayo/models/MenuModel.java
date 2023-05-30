@@ -7,12 +7,25 @@ public class MenuModel {
     private String namaMenu;
     private double hargaMenu;
     private int idJenisMenu;
+    private String gambarMenu;
+    private String deskripsiMenu;
 
     public String getGambarMenu() {
         return gambarMenu;
     }
 
-    private String gambarMenu;
+    public void setGambarMenu(String gambarMenu) {
+        this.gambarMenu = gambarMenu;
+    }
+
+    public String getDeskripsiMenu() {
+        return deskripsiMenu;
+    }
+
+    public void setDeskripsiMenu(String deskripsiMenu) {
+        this.deskripsiMenu = deskripsiMenu;
+    }
+
 
     public int getIdMenu() {
         return idMenu;

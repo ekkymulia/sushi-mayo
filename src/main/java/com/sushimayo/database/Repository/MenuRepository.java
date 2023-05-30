@@ -37,6 +37,9 @@ public class MenuRepository {
             menu.setNamaMenu(rs.getString("nama_menu"));
             menu.setHargaMenu(rs.getDouble("harga_menu"));
             menu.setIdJenisMenu(rs.getInt("id_jenismenu"));
+            menu.setGambarMenu(rs.getString("gambar_menu"));
+            menu.setDeskripsiMenu(rs.getString("deskripsi_menu"));
+
             return menu;
         }
     }
