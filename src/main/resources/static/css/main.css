@@ -475,7 +475,7 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
 }
 
 .breadcrumb-bg {
-    background-image: url(../img/products/DSC02117.jpg);
+    background-image: url(../img/products/Bg3.jpg);
 }
 
 .breadcrumb-bg-2 {
@@ -483,7 +483,7 @@ a.boxed-btn, a.bordered-btn, a.cart-btn {
 }
 
 .breadcrumb-bg-3 {
-    background-image: url(../img/products/DSC02118.jpg);
+    background-image: url(../img/products/Bg4.jpg);
 }
 
 .breadcrumb-bg-4 {
@@ -2169,7 +2169,7 @@ a.video-play-btn {
 }
 
 .feature-bg:after {
-    background-image: url(../img/feature-bg.jpg);
+    background-image: url(../img/products/SalmonMayoroll.jpg);
     position: absolute;
     right: 0;
     top: 0;
