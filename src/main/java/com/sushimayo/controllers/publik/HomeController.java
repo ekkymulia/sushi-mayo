@@ -1,6 +1,7 @@
 package com.sushimayo.controllers.publik;
 
 import com.sushimayo.database.Repository.DetailNotaRepository;
+import com.sushimayo.database.Repository.JenisMenuRepository;
 import com.sushimayo.database.Repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,12 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class HomeController {
 
-    @Autowired
-    private MenuRepository menuRepository;
-
     @GetMapping
-    public String Index(Model model){
-        model.addAttribute("menu", menuRepository.getAllMenu());
+    public String Index(){
         return "index.html";
 
     }
