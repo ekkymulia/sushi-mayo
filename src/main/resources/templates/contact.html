@@ -10,7 +10,7 @@
 	<title>Contact</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="img/sushi_mayo.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@
 					</div>
 				 	<div id="form_status"></div>
 					<div class="contact-form">
-						<form type="POST" id="fruitkha-contact" onSubmit="return valid_datas( this );">
+						<form action="#" id="fruitkha-contact">
 							<p>
 								<input type="text" placeholder="Name" name="name" id="name">
 								<input type="email" placeholder="Email" name="email" id="email">
@@ -141,8 +141,7 @@
 								<input type="text" placeholder="Subject" name="subject" id="subject">
 							</p>
 							<p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea></p>
-							<input type="hidden" name="token" value="FsWga4&@f6aw" />
-							<p><input type="submit" value="Submit"></p>
+							<p><input type="submit" id="submitBtn" value="Submit"></p>
 						</form>
 					</div>
 				</div>
@@ -267,6 +266,7 @@
 	<script src="js/form-validate.js"></script>
 	<!-- main js -->
 	<script src="js/main.js"></script>
+	<script src="js/contact.js"></script>
 	
 </body>
 </html>

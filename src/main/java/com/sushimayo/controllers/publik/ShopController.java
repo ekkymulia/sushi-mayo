@@ -24,6 +24,7 @@ public class ShopController {
         return "shop.html";
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/getSearch")
     public String ShopSearch (@RequestParam String namamenu, Model model){
         model.addAttribute("jenis_menu_data", jenisMenuRepository.getAllJenisMenu());
@@ -35,6 +36,15 @@ public class ShopController {
     @GetMapping(value = "/getProductDetails", produces = "application/json")
     @ResponseBody
     public MenuModel getMenuDetails(@RequestParam("id") String menuId) {
+        // Logic to fetch menu details based on the menuId
+        MenuModel menu = menuRepository.getMenuById(Integer.parseInt(menuId));
+        return menu;
+    }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(value = "/postNota", produces = "application/json")
+    @ResponseBody
+    public MenuModel postNota(@RequestParam String menuId) {
         // Logic to fetch menu details based on the menuId
         MenuModel menu = menuRepository.getMenuById(Integer.parseInt(menuId));
         return menu;
