@@ -93,6 +93,7 @@ function displayCartItems() {
             var idMenu = item.idMenu;
             var namaMenu = item.namaMenu;
             var hargaMenu = item.hargaMenu;
+            var gambarMenu = item.gambarMenu
             var quantity = item.quantity;
             var gambarMenu = item.gambarMenu;
             var totalHarga = parseInt(item.hargaMenu.replace(",", "")) * parseInt(quantity);
