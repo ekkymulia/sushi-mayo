@@ -20,4 +20,17 @@ public class DetailNotaRepository {
         return detailNotaList;
     }
 
+    public void saveDetailNota(DetailNotaModel detailNotaModel) {
+        String sql = "INSERT INTO detail_nota (id_nota, id_menu, qty, harga, total_harga) VALUES (?, ?, ?, ?, ?)";
+        jdbcTemplate.update(
+                sql,
+                detailNotaModel.getIdNota(),
+                detailNotaModel.getIdMenu(),
+                detailNotaModel.getQty(),
+                detailNotaModel.getHarga(),
+                detailNotaModel.getTotalHarga()
+        );
+    }
+
+
 }

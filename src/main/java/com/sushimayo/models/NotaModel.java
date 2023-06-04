@@ -8,7 +8,7 @@ public class NotaModel {
     private String alamat;
     private String metodePembayaran;
     private String namaPelanggan;
-    private Date tanggalPemesanan;
+    private Date tanggalPemesanan = new Date();
 
     public int getIdNota() {
         return idNota;

@@ -4,6 +4,8 @@ function addToCart(productId) {
     console.log("done")
 }
 
+
+
 function getProductDetails(productId) {
     $.ajax({
         url: "http://127.0.0.1:8080/shop/getProductDetails", // Replace with the actual URL of your server endpoint
@@ -93,6 +95,7 @@ function displayCartItems() {
             var hargaMenu = item.hargaMenu;
             var gambarMenu = item.gambarMenu
             var quantity = item.quantity;
+            var gambarMenu = item.gambarMenu;
             var totalHarga = parseInt(item.hargaMenu.replace(",", "")) * parseInt(quantity);
 
             // Format totalHarga as "Rp 30,000" format

@@ -166,7 +166,7 @@
 								</tr>
 							</thead>
 						</table>
-						<a href="#" class="boxed-btn" onclick="sendWa()">Place Order</a>
+						<a href="#" class="boxed-btn" onclick="postNota()">Place Order</a>
 					</div>
 				</div>
 			</div>
@@ -253,6 +253,7 @@
 	<script src="js/sticker.js"></script>
 	<!-- main js -->
 	<script src="js/main.js"></script>
+	<script src="js/cart.js"></script>
 	<script>
 		function sendWa(){
 			// Retrieve input data from form fields
@@ -311,6 +312,48 @@ Terima kasih atas pembayaran Anda!`;
 			var formattedPrice = "Rp " + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			return formattedPrice;
 		}
+
+		function postNota() {
+			const cartItems = getAllItemsFromCart();
+			const name = document.querySelector('input[name="name"]').value;
+			const email = document.querySelector('input[name="email"]').value;
+			const address = document.querySelector('input[name="address"]').value;
+			const phone = document.querySelector('input[name="phone"]').value;
+			const note = document.querySelector('textarea[name="bill"]').value;
+
+			// Remove commas from the hargaMenu value
+			cartItems.forEach(function(item) {
+				item.hargaMenu = item.hargaMenu.replace(/,/g, '');
+			});
+
+
+			const requestData = {
+				orderMenuModel: cartItems,
+				namaPelanggan: name,
+				alamat: address,
+				telpPelanggan: phone,
+				metodePembayaran: 'QRIS'
+			};
+
+			$.ajax({
+				url: "http://127.0.0.1:8080/shop/postNota",
+				type: "POST",
+				contentType: "application/json", // Specify the content type as JSON
+				data: JSON.stringify(requestData),
+				success: function(response) {
+					// Handle the response from the server
+					console.log(response);
+					sendWa();
+				},
+				error: function(xhr, status, error) {
+					console.error("Error posting cart items:", error);
+					// Handle any error scenarios or display error messages
+				}
+			});
+		}
+
+
+
 
 	</script>
 </body>

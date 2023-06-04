@@ -3,13 +3,15 @@ package com.sushimayo.models;
 import java.util.List;
 
 public class OrderModel extends NotaModel{
-    public List<OrderMenuModel> getOrderMenModel() {
-        return orderMenModel;
+
+
+    private List<OrderMenuModel> orderMenuModel;
+    public List<OrderMenuModel> getOrderMenuModel() {
+        return orderMenuModel;
     }
 
     public void setOrderMenModel(List<OrderMenuModel> orderMenModel) {
-        this.orderMenModel = orderMenModel;
+        this.orderMenuModel = orderMenModel;
     }
 
-    private List<OrderMenuModel> orderMenModel;
 }
