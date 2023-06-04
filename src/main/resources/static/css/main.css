@@ -2414,6 +2414,8 @@ ul.social-link-team li a {
 
 .single-product-item {
     margin-bottom: 30px;
+    min-height: 500px;
+    max-height: 500px;
 }
 
 .product-image {
