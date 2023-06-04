@@ -19,7 +19,7 @@ public class MenuRepository {
     JdbcTemplate jdbcTemplate;
 
     public List<MenuModel> getAllMenu() {
-        String query = "SELECT * FROM menu;";
+        String query = "SELECT * FROM menu WHERE is_deleted = false;";
         return jdbcTemplate.query(query, new MenuMapper());
     }
 
@@ -29,8 +29,29 @@ public class MenuRepository {
     }
 
     public List<MenuModel> getMenuByName(String menuName) {
-        String query = "SELECT * FROM menu WHERE nama_menu = ?";
+        String query = "SELECT * FROM menu WHERE nama_menu = ? and is_deleted = false";
         return jdbcTemplate.query(query, new Object[]{menuName}, new MenuMapper());
+    }
+
+    public void insertMenu(MenuModel menu) {
+        String hargaMenu = menu.getHargaMenu().replace(",", "");
+        String query = "INSERT INTO menu (nama_menu, harga_menu, id_jenismenu, gambar_menu, deskripsi_menu) VALUES ('" + menu.getNamaMenu() + "', '" + hargaMenu + "', " + menu.getIdJenisMenu() + ", '" + menu.getGambarMenu() + "', '" + menu.getDeskripsiMenu() + "')";
+        jdbcTemplate.update(query);
+    }
+
+    public void deleteMenuById(int menuId) {
+        String query = "DELETE FROM menu WHERE id_menu = " + menuId;
+        jdbcTemplate.update(query);
+    }
+
+    public void softDeleteMenu(int idMenu) {
+        String query = "UPDATE menu SET is_deleted = true WHERE id_menu = " + idMenu;
+        jdbcTemplate.update(query);
+    }
+
+    public void updateMenu(MenuModel menu) {
+        String query = "UPDATE menu SET nama_menu = '" + menu.getNamaMenu() + "', harga_menu = '" + menu.getHargaMenu() + "', id_jenismenu = " + menu.getIdJenisMenu() + ", gambar_menu = '" + menu.getGambarMenu() + "', deskripsi_menu = '" + menu.getDeskripsiMenu() + "' WHERE id_menu = " + menu.getIdMenu();
+        jdbcTemplate.update(query);
     }
 
 
