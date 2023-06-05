@@ -10,6 +10,8 @@ public class MenuModel {
     private String gambarMenu;
     private String deskripsiMenu;
 
+    private boolean isDeleted = false;
+
     public String getGambarMenu() {
         return gambarMenu;
     }
